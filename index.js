@@ -41,6 +41,9 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
+    // const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    // cb(null, file.fieldname + "-" + uniqueSuffix + path.extname(file.originalname));
+    // req.picturePath = file.fieldname + "-" + uniqueSuffix + path.extname(file.originalname);
   },
 });
 
@@ -67,8 +70,8 @@ mongoose
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 
-    //Add dummy data (Run only once)
-    //User.insertMany(users);
-    //Post.insertMany(posts);
+    // //Add dummy data (Run only once)
+    // User.insertMany(users);
+    // Post.insertMany(posts);
   })
   .catch((error) => console.log(`${error} did not connect`));
